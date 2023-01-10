@@ -10,7 +10,7 @@ with open('README.md', 'rb') as f:
     readme = f.read().decode('utf-8')
 
 setup(
-    name='osstool',
+    name='oss-python-sdk',
     version='1.0.0',
     description='OSS Python SDK',
     author='wangyingbin',
