@@ -547,7 +547,7 @@ class Bucket(Base):
         logger.debug("Delete objects done, req_id: {0}, status_code: {1}".format(resp.request_id, resp.status))
         return self._parse_result(resp, xml_utils.parse_batch_delete_objects, BatchDeleteObjectsResult)
 
-    def list_objects(self, prefix='', delimiter='', marker='', max_keys=100, headers=None):
+    def list_objects(self, prefix='', delimiter='', marker='', max_keys=100, allow_unordered='false', headers=None):
         # type: (object, object, object, object, object) -> object
         """根据前缀罗列Bucket里的文件。
 
@@ -570,6 +570,7 @@ class Bucket(Base):
                                         'delimiter': delimiter,
                                         'marker': marker,
                                         'max-keys': str(max_keys),
+                                        'allow_unordered': allow_unordered,
                                         'encoding-type': 'url'},
                                 headers=headers)
         logger.debug("List objects done, req_id: {0}, status_code: {1}".format(resp.request_id, resp.status))
