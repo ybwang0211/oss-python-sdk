@@ -392,7 +392,7 @@ class Bucket(Base):
         logger.debug(
             "Complete multipart upload done, req_id: {0}, status_code: {1}".format(resp.request_id, resp.status))
 
-        result = PutObjectResult(resp);
+        result = PutObjectResult(resp)
 
         if self.enable_crc:
             object_crc = utils.calc_obj_crc_from_parts(parts)
